@@ -36,7 +36,7 @@ class PartnerController {
         phone,
         email,
         website,
-        status = false,
+        status = 0,
       } = req.body;
 
       if (!category) throw { message: "Category is required field" };
