@@ -3,15 +3,15 @@ const PartnerController = require("../controllers/partnerController");
 
 const routes = require("express").Router();
 
-routes.get("/", UserController.checkAuth, PartnerController.getPartners);
-routes.post("/", PartnerController.registerPartners);
+routes.get("/partners", UserController.checkAuth, PartnerController.getPartners);
+routes.post("/partners", PartnerController.registerPartners);
 routes.put(
-  "/:partnerId",
+  "/partners/:partnerId",
   UserController.checkAuth,
   PartnerController.changeStatusPartner
 );
 routes.delete(
-  "/:partnerId",
+  "/partners/:partnerId",
   UserController.checkAuth,
   PartnerController.deletePartner
 );
