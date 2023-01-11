@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "postgres",
-    "password": "root123",
+    "username": "root",
+    "password": null,
     "database": "athlead",
     "host": "postgresql://postgres:ik3wcV8gncfw54zM5r4B@containers-us-west-127.railway.app:7314/railway",
     "dialect": "postgres"

@@ -31,7 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/images", express.static(path.join(__dirname, "images")));
-app.use("/", routes);
+app.use(routes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on PORT ${PORT}`);
