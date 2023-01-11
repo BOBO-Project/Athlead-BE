@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
+    "username": "postgres",
+    "password": "root123",
     "database": "athlead",
-    "host": "postgresql://postgres:ik3wcV8gncfw54zM5r4B@containers-us-west-127.railway.app:7314/railway",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
@@ -17,7 +17,7 @@
     "username": "root",
     "password": null,
     "database": "athlead",
-    "host": "postgresql://postgres:ik3wcV8gncfw54zM5r4B@containers-us-west-127.railway.app:7314/railway",
+    "host": "127.0.0.1",
     "dialect": "postgres"
   }
 }
