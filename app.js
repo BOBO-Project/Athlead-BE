@@ -1,8 +1,7 @@
 require("dotenv");
 const express = require("express");
-const bodyParser = require("body-parser");
+const formData = require("express-form-data");
 const cors = require("cors");
-const path = require("path");
 
 //Routes
 const routes = require("./routes");
@@ -26,11 +25,10 @@ const PORT = process.env.PORT || 8080;
 */
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(formData.parse());
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
-app.use("/images", express.static(path.join(__dirname, "images")));
 app.use(routes);
 
 app.listen(PORT, () => {

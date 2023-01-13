@@ -1,5 +1,6 @@
 const { Email } = require("../models");
 const sendEmail = require("../hooks/sendEmail");
+const xlsx = require("node-xlsx");
 
 class EmailController {
   static async addEmail(req, res, next) {
@@ -50,6 +51,26 @@ class EmailController {
 
       return res.status(200).json({
         message: "Success",
+      });
+    } catch (error) {
+      return res.status(400).json({
+        message: error.message || "Failed",
+      });
+    }
+  }
+
+  static async upload(req, res, next) {
+    try {
+      const { file } = req.files;
+      const emailListRaw = xlsx.parse(file.path)[0].data;
+      const emailList = [];
+      emailListRaw.map((el) => {
+        emailList.push({ email: el[0] });
+      });
+
+      Email.bulkCreate(emailList);
+      return res.status(200).json({
+        message: "Success uploading email list",
       });
     } catch (error) {
       return res.status(400).json({
