@@ -78,6 +78,20 @@ class EmailController {
       });
     }
   }
+
+  static async reset(req, res, next) {
+    try {
+      Email.destroy({
+        where: {},
+        truncate: true,
+      });
+      return res.status(200).json({ message: "success" });
+    } catch (error) {
+      return res.status(400).json({
+        message: error.message || "Failed",
+      });
+    }
+  }
 }
 
 module.exports = EmailController;
